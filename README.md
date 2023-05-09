@@ -14,3 +14,5 @@ Python works with various operating systems. You can go to Python's [Downloads](
 * :link: [100 Days of Code: The Complete Python Pro Bootcamp for 2023](https://www.udemy.com/share/103IHM3@79CegSNcLpMrHIUJgHN61o7-ajdYlZbzn4KJaSWDCKEDTGFs3Z4HGszLyLCjTPcwmQ==/) - _This is a **PAID COURSE** - Last Updated 05/2023_
 
 Happy learning!
+
+> The sandbox.py is to test any code while learning. Then the code is moved to a specific folder.
