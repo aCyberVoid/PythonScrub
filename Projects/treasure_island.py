@@ -26,21 +26,26 @@ print("Your mission is to find the treasure.")
 # Write your code below this line 👇
 
 # 1st Move - Left or Right
-choice1 = input('You\'re at the crossroad. Where do you want to go? Type "Left" or "Right".\n').lower()
+choice1 = input(
+    'You\'re at the crossroad. Where do you want to go? Type "Left" or "Right".\n').lower()
 if choice1 == "left":
-# 2nd Move - Swim or Wait
-  choice2 = input("You've come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat or 'swim' to swim across.\n").lower()
-  if choice2 == "swim":
-# 3rd Move - Choose a door - Red, Yellow, Green
-      choice3 = input("You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?\n").lower()
-# Game End Scenarios
-      if choice3 == "red":
-        print("The room is filled with fire! GAME OVER.")
-      elif choice3 == "blue":
-        print("OMG, what is that!?!? You've been eaten by beasts! GAME OVER.")
-      else:
-        print("You found the treasure! It's...uhm...a gold coin. You won, though! Yay?")
-  else:
-      print("Somehow you were attacked by a trout. That sucks...GAME OVER.")
+    # 2nd Move - Swim or Wait
+    choice2 = input(
+        "You've come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat or 'swim' to swim across.\n").lower()
+    if choice2 == "swim":
+        # 3rd Move - Choose a door - Red, Yellow, Green
+        choice3 = input(
+            "You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?\n").lower()
+        # Game End Scenarios
+        if choice3 == "red":
+            print("The room is filled with fire! GAME OVER.")
+        elif choice3 == "blue":
+            print(
+                "OMG, what is that!?!? You've been eaten by beasts! GAME OVER.")
+        else:
+            print(
+                "You found the treasure! It's...uhm...a gold coin. You won, though! Yay?")
+    else:
+        print("Somehow you were attacked by a trout. That sucks...GAME OVER.")
 else:
     print("You fell into a hole? How did you not see that!?!? GAME OVER.")
