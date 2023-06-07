@@ -1,0 +1,32 @@
+# ╭───────────────────────────────────────────────────────────────────────────────────────────╮
+# │  Exercise 19: Functions and Variables                                                     │
+# ╰───────────────────────────────────────────────────────────────────────────────────────────╯
+
+# Define a function cheese_and_crackers with two parameters
+# Inside the function: Use args within print statements
+def cheese_and_crackers(cheese_count, boxes_of_crackers):
+    print(f"You have {cheese_count} cheeses!")
+    print(f"You have {boxes_of_crackers} boxes of crackers!")
+    print(f"Man that's enough for a party!")
+    print(f"Get a blanket.\n")
+
+
+print("We can just give the function numbers directly:")
+# Call the function with numbers as args
+cheese_and_crackers(20, 30)
+
+print("OR, we can use variables from our script:")
+# Define two variables with integers
+amount_of_cheese = 10
+amount_of_crackers = 50
+
+# Call the function with variables as arguments
+cheese_and_crackers(amount_of_cheese, amount_of_crackers)
+
+print("We can even do math inside too:")
+# Call the function and pass math operations as arguments
+cheese_and_crackers(10 + 20, 5 + 6)
+
+print("And we can combine the two, variables and math:")
+# Call the function and pass calculations [variables + integers] as arguments
+cheese_and_crackers(amount_of_cheese + 100, amount_of_crackers + 1000)
