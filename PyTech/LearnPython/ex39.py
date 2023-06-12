@@ -21,7 +21,7 @@ cities['OR'] = 'Portland'
 # print out some cities
 print('-' * 10)
 print("Let's print some cities.")
-print("NY States has: ", cities['NY'])
+print("NY State has: ", cities['NY'])
 print("OR State has: ", cities['OR'])
 
 # print some states
@@ -40,9 +40,9 @@ for state, abbrev in list(states.items()):
 print('-' * 10)
 print("Let's print cities for each state")
 for abbrev, city in list(cities.items()):
-    print(f"{state} state is abbreviated {abbrev} and has city {cities[abbrev]}")
+    print(f"{abbrev} state is abbreviated {abbrev} and has city {cities[abbrev]}")
 
-# safely get a abbreviation by state that might not be there 
+# safely get an abbreviation by state that might not be there
 print('-' * 10)
 state = states.get('Texas')
 
