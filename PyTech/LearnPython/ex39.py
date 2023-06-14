@@ -30,14 +30,27 @@ print("Let's print some states.")
 print("Michigan's abbreviation is: ", states['Michigan'])
 print("Florida's abbreviation is: ", states['Florida'])
 
+<<<<<<< Updated upstream
 # print every state then city dictionary
 print('-' * 10)
 print("Let's print every state then city.")
+=======
+# print states and cities dictionaries
+print('-' * 10)
+print("Let's print the state and their cities.")
+print("Michigan has: ", cities[states['Michigan']])
+print("Florida has: ", cities[states['Florida']])
+
+# print every state abbreviation
+print('-' * 10)
+print("State Abbreviations")
+>>>>>>> Stashed changes
 for state, abbrev in list(states.items()):
     print(f"{state} is abbreviated {abbrev}")
 
 # print every city in state
 print('-' * 10)
+<<<<<<< Updated upstream
 print("Let's print cities for each state")
 for abbrev, city in list(cities.items()):
     print(f"{abbrev} state is abbreviated {abbrev} and has city {cities[abbrev]}")
@@ -52,3 +65,26 @@ if not state:
 # get a city with a default value
 city = cities.get('TX', 'Does Not Exist')
 print(f"The city for the state 'TX' is: {city}")
+=======
+print("All the cities!")
+for abbrev, city in list(cities.items()):
+    print(f"{abbrev} has the city {city}")
+
+# print both at the same time
+print('-' * 10)
+print("Print both dictionaries now!")
+for state, abbrev in list(states.items()):
+    print(f"{state} state is abbreviated {abbrev}")
+    print(f"and has city {cities[abbrev]}")
+
+print('-' * 10)
+# safely get a abbreviation by state that might not be there
+state = states.get('Texas')
+
+if not state:
+    print('Sorry, no Texas.')
+
+# get a city with a default value
+city = cities.get('TX', 'Does not Exist!')
+print(f"The city for the state 'TX' is: {city}")
+>>>>>>> Stashed changes
