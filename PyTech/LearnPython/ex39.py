@@ -52,3 +52,25 @@ if not state:
 # get a city with a default value
 city = cities.get('TX', 'Does Not Exist')
 print(f"The city for the state 'TX' is: {city}")
+
+print("All the cities!")
+for abbrev, city in list(cities.items()):
+    print(f"{abbrev} has the city {city}")
+
+# print both at the same time
+print('-' * 10)
+print("Print both dictionaries now!")
+for state, abbrev in list(states.items()):
+    print(f"{state} state is abbreviated {abbrev}")
+    print(f"and has city {cities[abbrev]}")
+
+print('-' * 10)
+# safely get a abbreviation by state that might not be there
+state = states.get('Texas')
+
+if not state:
+    print('Sorry, no Texas.')
+
+# get a city with a default value
+city = cities.get('TX', 'Does not Exist!')
+print(f"The city for the state 'TX' is: {city}")
