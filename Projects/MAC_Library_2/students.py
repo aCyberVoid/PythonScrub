@@ -6,8 +6,7 @@ class Student:
         self.subject = subject  # Current class of student
         self.books_checked_out = {}  # Dictionary to store books checked out by the student and current page
 
-    @staticmethod
-    def load_students(filename):
+def load_students(filename):
         students = {}
         with open(filename, 'r') as file:  # Opens the CSV file with student information
             students_reader = csv.reader(file)  # Creates a reader for the CSV file
