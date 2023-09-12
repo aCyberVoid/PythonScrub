@@ -9,6 +9,8 @@ class Book:
         self.author = author
 
 
+import csv
+
 class RestrictedBook(Book):
     # initialize a sub class of Book called RestrictedBook
     def __init__(self, title, author, classes_allowed):

@@ -2,9 +2,9 @@
 
 # Import required modules
 import csv
-from books import Book, RestrictedBook
-from students import Student
-from library import Library
+import books
+import students
+from library import Library  # Assuming Library is a class you want to use directly
 
 def load_books(filename):
     """Load books from a CSV file."""
@@ -19,33 +19,23 @@ def load_books(filename):
             books.append(book)
     return books
 
-def load_students(filename):
-    """Load students from a CSV file."""
-    students = []
-    with open(filename, 'r') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            student = Student(row['Student'], row['Restricted Class'] if row['Restricted Class'] else None)
-            students.append(student)
-    return students
-
 def main():
     """Main function of the program."""
     # Load books and students from CSV files
-    books = load_books('books.csv')
-    students = load_students('students.csv')
+    loaded_books = books.load_books('books.csv')  # Qualified with module name
+    loaded_students = students.load_students('students.csv')  # Qualified with module name
 
     # Create a library and add books and students to it
-    library = Library()
-    for book in books:
-        library.add_book(book)
-    for student in students:
-        library.add_student(student)
+    library_instance = Library()  # Renamed to avoid name clash with library module
+    for book in loaded_books:
+        library_instance.add_book(book)
+    for student in loaded_students:
+        library_instance.add_student(student)
 
     # Start of the program
     print("Welcome to the Magical Academy for Cats Library Management System!")
     student_name = input("Please enter your name: ")
-    library.library_menu(student_name)
+    library_instance.library_menu(student_name)  # Qualified with instance name
 
 if __name__ == '__main__':
     main()
