@@ -16,6 +16,8 @@ def main():
     if student_name not in library.students:
         print("You are not registered.")
         return
+    
+    library.current_student = student_name  # Set the current student
 
     library.library_menu()  # Call the instance method, not the class method
 

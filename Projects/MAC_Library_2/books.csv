@@ -1,6 +1,6 @@
-Title,Author,Restriction,Restricted Class
-"Advanced Potions","Feline Snape","No",
-"The Art of Invisibility","Whiskers Potter","No",
-"Charms for Charming Cats","Furry Flitwick","No",
-"Defence Against Dog Magic","Meow Moody","Yes","Defence Against Dog Magic"
-"Dark Magic and How to Claw It","Claws Dumbledore","Yes","Dark Magic"
+title,author,restriction,restricted_class,checked_out_by
+Advanced Potions,Feline Snape,no,,Snowball
+The Art of Invisibility,Whiskers Potter,no,,
+Charms for Charming Cats,Furry Flitwick,no,,
+Defence Against Dog Magic,Meow Moody,yes,Defence Against Dog Magic,
+Dark Magic and How to Claw It,Claws Dumbledore,yes,Dark Magic,

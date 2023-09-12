@@ -23,6 +23,7 @@ class Book:
         self.restricted_class = restricted_class
         self.current_page = 1  # Initialize current page to 1
         self.due_date = None  # Initialize due date as None
+        self.checked_out_by = None  # Initialize checked out by as None
 
     def __str__(self):
         # String representation of a book object including checkout status
@@ -49,3 +50,4 @@ class RestrictedBook(Book):
     def __init__(self, title, author, restricted_class):
         super().__init__(title, author, 'yes', restricted_class)
         self.restricted_class = restricted_class
+        self.checked_out_by = None
