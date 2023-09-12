@@ -42,33 +42,31 @@ class Library:
         with open(filename, 'r') as file:  # Open the CSV file with book information
             books_reader = csv.reader(file)  # Create a reader for the CSV file
             next(books_reader)  # Skip the header row
-            for row in books_reader:  # For each row in the CSV file.
-                try:
-                    title, author, restriction, restricted_class, checked_out_by = row  # ...unpack the row into variables
-                except ValueError:
+            for row in books_reader:
+                # print(f"\nRow data: {row}") - TESTING to view books.csv data
+                if len(row) == 5:
+                    title, author, restriction, restricted_class, checked_out_by = row
+                elif len(row) == 4:
                     title, author, restriction, restricted_class = row
-                checked_out_by = None
-                if restriction.lower() == 'yes':  # If the book is restricted.
-                    # ...add it as a RestrictedBook, with the restricted class(es)
-                    self.add_book(RestrictedBook(title, author, restricted_class.split(',')))
+                    checked_out_by = None
                 else:
-                    # If the book is not restricted, add it as a regular Book
-                    self.add_book(Book(title, author, restriction, restricted_class))
+                    print(f"\nSkipping row due to unexpected number of columns: {row}")
+                    continue
 
     def load_students(self, filename):
         self.students = load_students(filename)
 
     def check_out_book(self):
         # Display available books
-        print("Available books:")
+        print("\nAvailable books:")
         for book in self.books.keys():
             print(book)
 
         # Ask for the book title to check out
-        book_title = input("Enter the title of the book you want to check out: ")
+        book_title = input("\nEnter the title of the book you want to check out: ")
 
         if book_title not in self.books:
-            print("Sorry, we don't have that book.")
+            print("\nSorry, we don't have that book.")
             return
 
         # Check if the book is available
@@ -91,3 +89,17 @@ class Library:
     def display_checked_out_books(self):
         checked_out_books = [book.title for book in self.books.values() if book.checked_out_by == self.current_student]
         print(f"Books checked out by {self.current_student}: {', '.join(checked_out_books)}")
+
+    def return_book(self):
+        book_title = input("Enter the title of the book you wish to return: ")
+
+        if book_title not in self.books:
+            print("Sorry, that book doesn't exist in our library.")
+            return
+    
+        if self.books[book_title].checked_out_by == self.current_student:
+            self.books[book_title].checked_out_by = None  # Reset the 'checked_out_by' attribute
+            self.update_books_csv()  # Update the CSV file
+            print(f"Successfully returned {book_title}.")
+        else:
+            print("This book was not checked out by you.")
