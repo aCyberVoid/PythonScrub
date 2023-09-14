@@ -37,21 +37,34 @@ class Library:
 
     def add_student(self, student):
         self.students[student.name] = student  # Adds a new student to the library
-
+    
     def load_books(self, filename):
-        with open(filename, 'r') as file:  # Open the CSV file with book information
-            books_reader = csv.reader(file)  # Create a reader for the CSV file
-            next(books_reader)  # Skip the header row
-            for row in books_reader:
-                # print(f"\nRow data: {row}") - TESTING to view books.csv data
-                if len(row) == 5:
-                    title, author, restriction, restricted_class, checked_out_by = row
-                elif len(row) == 4:
-                    title, author, restriction, restricted_class = row
-                    checked_out_by = None
+        """Load books from a CSV file."""
+        books = []
+        with open(filename, 'r') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['restriction'] == 'no':
+                    book = Book(row['title'], row['author'], row['checked_out_by'])
                 else:
-                    print(f"\nSkipping row due to unexpected number of columns: {row}")
-                    continue
+                    book = RestrictedBook(row['title'], row['author'], row['restricted_class'], row['checked_out_by'])
+                books.append(book)
+        self.books = books
+
+#    def load_books(self, filename):
+#         with open(filename, 'r') as file:  # Open the CSV file with book information
+#             books_reader = csv.reader(file)  # Create a reader for the CSV file
+#             next(books_reader)  # Skip the header row
+#             for row in books_reader:
+#                 print(f"\nRow data: {row}") # - TESTING to view books.csv data
+#                 if len(row) == 5:
+#                     title, author, restriction, restricted_class, checked_out_by = row
+#                 elif len(row) == 4:
+#                     title, author, restriction, restricted_class = row
+#                     checked_out_by = None
+#                 else:
+#                     print(f"\nSkipping row due to unexpected number of columns: {row}")
+#                     continue
 
     def load_students(self, filename):
         self.students = load_students(filename)
@@ -86,6 +99,7 @@ class Library:
                     writer.writerow([book.title, book.author, 'yes', ','.join(book.restricted_class), book.checked_out_by])
                 else:
                     writer.writerow([book.title, book.author, 'no', '', book.checked_out_by])
+
     def display_checked_out_books(self):
         checked_out_books = [book.title for book in self.books.values() if book.checked_out_by == self.current_student]
         print(f"Books checked out by {self.current_student}: {', '.join(checked_out_books)}")

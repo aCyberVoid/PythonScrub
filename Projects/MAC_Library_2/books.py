@@ -1,29 +1,25 @@
-import csv
-
-def load_books(filename):
-    """Load books from a CSV file."""
-    books = []
-    with open(filename, 'r') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            if row['Restriction'].lower() == 'no':
-                book = Book(row['Title'], row['Author'])
-            else:
-                book = RestrictedBook(row['Title'], row['Author'], row['Restricted Class'])
-            books.append(book)
-    return books
+# def load_books(filename):
+#     """Load books from a CSV file."""
+#     books = []
+#     with open(filename, 'r') as csvfile:
+#         reader = csv.DictReader(csvfile)
+#         for row in reader:
+#             if row['Restriction'].lower() == 'no':
+#                 book = Book(row['Title'], row['Author'])
+#             else:
+#                 book = RestrictedBook(row['Title'], row['Author'], row['Restricted Class'])
+#             books.append(book)
+#     return books
 
 # Book Class
 class Book:
-    def __init__(self, title, author, restriction, restricted_class):
+    def __init__(self, title, author, checked_out_by):
         # Initialize the attributes of a book object
         self.title = title
         self.author = author
-        self.restriction = restriction
-        self.restricted_class = restricted_class
         self.current_page = 1  # Initialize current page to 1
         self.due_date = None  # Initialize due date as None
-        self.checked_out_by = None  # Initialize checked out by as None
+        self.checked_out_by = checked_out_by
 
     def __str__(self):
         # String representation of a book object including checkout status
@@ -47,7 +43,6 @@ class Book:
 
 class RestrictedBook(Book):
     # initialize the attributes of a restricted book object
-    def __init__(self, title, author, restricted_class):
-        super().__init__(title, author, 'yes', restricted_class)
+    def __init__(self, title, author, restricted_class, checked_out_by):
+        super().__init__(title, author, checked_out_by)
         self.restricted_class = restricted_class
-        self.checked_out_by = None
