@@ -5,7 +5,7 @@ class Book:
         self.author = author  # Set the author of the book
         self.current_page = 1  # Set the current page of the book to 1
         self.due_date = None  # Set the due date of the book to None
-        self.checked_out_by = None  # Set the checked out by information to None
+        self.checked_out_by = ''
 
     def __str__(self):
         status = "Checked Out" if self.is_checked_out() else "Available"  # Determine the status of the book
