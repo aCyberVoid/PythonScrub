@@ -10,12 +10,5 @@ def main():
     print("Testing with Snowball:")
     library.library_menu()
 
-    print("\n--------------------------------\n")
-
-    # Set the current student to Void
-    library.current_student = "Void"
-    print("Testing with Void:")
-    library.library_menu()
-
 if __name__ == "__main__":
     main()
