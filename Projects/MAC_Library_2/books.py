@@ -5,24 +5,7 @@ class Book:
         self.author = author  # Set the author of the book
         self.current_page = 1  # Set the current page of the book to 1
         self.due_date = None  # Set the due date of the book to None
-        self.checked_out_by = ''
-
-    def __str__(self):
-        status = "Checked Out" if self.is_checked_out() else "Available"  # Determine the status of the book
-        return f"{self.title} by {self.author} ({status})"  # Return a formatted string representation of the book
-
-    def is_book_available(self):
-        return not self.is_checked_out()  # Check if the book is available for checkout
-
-    def update_current_page(self, page_number):
-        self.current_page = page_number  # Update the current page of the book
-
-    def set_due_date(self, due_date):
-        self.due_date = due_date  # Set the due date of the book
-
-    def is_checked_out(self):
-        return self.due_date is not None  # Check if the book is checked out
-
+        self.checked_out_by = ''  # Set the checked out by attribute to an empty string
 
 class RestrictedBook(Book):
     def __init__(self, title, author, restricted_class): # Constructor for the RestrictedBook class
