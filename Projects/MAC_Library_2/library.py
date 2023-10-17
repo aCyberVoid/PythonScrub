@@ -81,12 +81,20 @@ class Library:
 # =========================================================================
 # This section of the code focuses on the menu options from library_menu()
 # =========================================================================
-
-    def check_out_book(self):
-        print("\nAvailable books:")
+    def available_books(self):
+        book_list = [] # Create an empty list
         for book in self.books.keys():
             if self.books[book].checked_out_by is None: # Only print available books
                 print(book)
+                book_list.append(book)
+        return book_list
+
+    def check_out_book(self):
+        print("\nAvailable books:")
+        self.available_books()
+        # for book in self.books.keys():
+        #     if self.books[book].checked_out_by is None: # Only print available books
+        #         print(book)
 
         book_title = input("Enter the title of the book you wish to check out: ")
 
