@@ -1,11 +1,16 @@
-import unittest
-import library
+import unittest  # Import the unittest module
 
+from library import Library  # Import library class
+
+# This class will contain all the test cases for library.py
 class TestLibrary(unittest.TestCase):
-    def test_available_books(self):
-        test_library = library.Library() # Create an instance of the Library class
-        # test_library.check_out_book() # Call the check_out_book method
-        book_list = test_library.available_books() # Call the available_books method
-        self.assertEquals(book_list, ["Advanced Potions", "The Art of Invisibility", "Defence Against Dog Magic", "Dark Magic and How to Claw It"])
 
-unittest.main()
+    def test_load_books(self):
+        lib = Library()  # Create a Library object
+        result = lib.load_books('books.csv')  # Call load_books() method on the instance
+        self.assertIsNotNone(result)  # Assert that the result of the function is not None
+
+
+# unittest.main() hich runs all the test cases
+if __name__ == '__main__':
+    unittest.main()

@@ -75,7 +75,7 @@ class Library:
                     writer.writerow([book.title, book.author, 'yes', ','.join(book.restricted_class), book.checked_out_by, book.current_page]) # Write the row to the file
                 else:
                     writer.writerow([book.title, book.author, 'no', '', book.checked_out_by, book.current_page]) # Write the row to the file
-                    print("DEBUG: " + f"Book: {book.title}, Checked out by: {book.checked_out_by}") # Debugging
+                print("DEBUG: " + f"Book: {book.title}, Checked out by: {book.checked_out_by}, Current page numbers is {book.current_page}.") # Debugging
             print("==========")
 
 # =========================================================================
