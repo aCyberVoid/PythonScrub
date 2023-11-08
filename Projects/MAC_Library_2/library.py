@@ -56,7 +56,7 @@ class Library:
 
                     book.checked_out_by = checked_out_by  # Set the checked out by attribute
                     # Add the book to the library catalogue [books.csv]
-                    self.add_book(book)
+                    self.books[title] = book
         except FileNotFoundError:  # Catch the FileNotFoundError exception
             print(f"Error: File '{filename}' not found.")
 
