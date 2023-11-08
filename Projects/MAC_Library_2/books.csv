@@ -1,6 +1,6 @@
 title,author,restriction,restricted_class,checked_out_by,current_page
-Advanced Potions,Feline Snape,no,,Kitty,1
-The Art of Invisibility,Whiskers Potter,no,,Kitty,1
-Charms for Charming Cats,Furry Flitwick,no,,Kitty,1
-Defence Against Dog Magic,Meow Moody,yes,Defence Against Dog Magic,,1
-Dark Magic and How to Claw It,Claws Dumbledore,yes,Dark Magic,Snowball,1
+Advanced Potions,Feline Snape,yes,Potions,,
+The Art of Invisibility,Whiskers Potter,no,,,
+Charms for Charming Cats,Furry Flitwick,yes,Charms,,
+Defence Against Dog Magic,Meow Moody,yes,Defence Magic,,
+Dark Magic and How to Claw It,Claws Dumbledore,yes,Dark Magic,,

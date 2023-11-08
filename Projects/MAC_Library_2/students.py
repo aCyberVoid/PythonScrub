@@ -5,6 +5,7 @@ class Student: # Student class
         self.name = name  # The name of the student
         self.subject = subject  # Current class of student
         self.books_checked_out = {}  # Dictionary to store books checked out by the student and current page
+        self.restricted_class = restricted_class
 
 def load_students(filename): # Loads students from a CSV file
         students = {} # Creates a dictionary to store students
